@@ -1,10 +1,13 @@
 let a = "";
 let b = "";
+
 let sign = "";
-let finish = false;
-let digit = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
 let action = ["-", "+", "*", "/"];
+
 let out = document.querySelector(".calc-screen p");
+
+let finish = false;
 
 function clearAll() {
   a = "";
@@ -24,10 +27,10 @@ document.querySelector(".buttons").onclick = (event) => {
 
   let key = event.target.textContent;
 
-  if (digit.includes(key)) {
+  if (numbers.includes(key)) {
     if (b === "" && sign === "") {
       a += key;
-      console.log(a, b, sign);
+
       out.textContent = a;
     } else if (a !== "" && b !== "" && finish) {
       b = key;
@@ -37,13 +40,13 @@ document.querySelector(".buttons").onclick = (event) => {
       b += key;
       out.textContent = b;
     }
-    console.log(a, b, sign);
+
     return;
   }
   if (action.includes(key)) {
     sign = key;
     out.textContent = sign;
-    console.log(sign);
+
     return;
   }
 
